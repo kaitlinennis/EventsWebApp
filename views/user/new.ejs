@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs')%>
+<main class="paragraphText">
+    <div class="overview">
+        <p>Welcome to the Sign Up page.</p>
+        <p>This is a place where you can create new users.</p>
+        <br>
+
+        <div class="form">
+            <form action = '/users/' method = 'POST'>
+                <div class="userInput">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required minlength="6" maxlength="64">
+                </div>
+                <br>
+
+                <div id="connectionButton">
+                    <button>Sign Up</button>
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+</main>
+
+
+
+<%- include('../partials/footer.ejs')%>

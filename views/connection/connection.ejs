@@ -1,0 +1,47 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div class="eventDetail">
+            <h2><%= connection.connectionName%></h2>
+            <div id="connectionImage">
+                <img src="<%= connection.image%>" alt="Connection image" width="130px" height="70px">
+            </div>
+            <p>Hosted by <%= connection.hostName.firstName + ' ' + connection.hostName.lastName%></p>
+            <p><%= connection.date%></p>
+            <p><%= connection.startTime%> - <%= connection.endTime%></p>
+            <p><%= connection.location%></p>
+            
+            <br>
+            <h3>Details</h3>
+            <p><%= connection.details%></p>
+            <br>
+        </div>
+
+    <%if(user == connection.hostName._id) {%>
+        <form>
+            <div id="update">
+                <button type="submit" formmethod="GET" formaction="/connections/<%= connection._id%>/edit">Edit</button>
+            </div>
+
+            <div id="delete">
+                <button type="submit" formmethod="POST" formaction="/connections/<%= connection._id%>?_method=DELETE">Delete</button>
+            </div>
+        </form>
+    <%} else if(user && user!=connection.hostName._id) {%> <!-- If user is logged in AND is not the host of the connection-->
+        <form>
+            <h5><%=rsvps%> people are going</h5>
+            <h4>Are you going to attend? RSVP!</h4>
+            <div id="update">
+                <button type="submit" formmethod="POST" formaction="/connections/<%= connection._id%>/rsvp" name="rsvp" value="YES">Yes</button>
+            </div>
+
+            <div id="delete">
+                <button type="submit" formmethod="POST" formaction="/connections/<%= connection._id%>/rsvp" name="rsvp" value="NO">No</button>
+            </div>
+
+            <div id="delete">
+                <button type="submit" formmethod="POST" formaction="/connections/<%= connection._id%>/rsvp" name="rsvp" value="MAYBE">Maybe</button>
+            </div>
+        </form>
+    <%}%>
+    </main>
+    <%- include('../partials/footer.ejs')%>

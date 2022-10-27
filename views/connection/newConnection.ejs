@@ -1,0 +1,60 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div class="form">
+            <form action = '/connections' method = 'POST'>
+                <div class="userInput">
+                    <label for="topic">Topic</label>
+                    <input type="text" id="topic" name="topic" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="connectionName">Title</label>
+                    <input type="text" id="connectionName" name="connectionName" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="details">Details</label>
+                    <textarea id="details" name="details" rows="5" cols="30" required minlength="10"></textarea>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="location">Where</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="date">When</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="startTime">Start</label>
+                    <input type="time" id="startTime" name="startTime" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="endTime">End</label>
+                    <input type="time" id="endTime" name="endTime" required>
+                </div>
+                <br>
+
+                <div class="userInput">
+                    <label for="image">Image URL</label>
+                    <input type="text" id="image" name="image" required>
+                </div>
+                <br>
+
+                <div id="connectionButton">
+                    <button>Create Connection</button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs')%>

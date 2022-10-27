@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs')%>
+
+<!--Check if category/topic already exists. If so, place new connection under existing category.
+If not, create the new category and place the new connection under the new category.-->
+    <main>
+        <%if(connections.length > 0) {%>
+            <%topics.forEach(topic=>{%>
+                <h2 class="category"><%= topic%></h2>
+                <%connections.forEach(connection=>{%>
+                    <%if(connection.topic == topic) {%>
+                        <section>
+                            <ul>
+                                <li><a href="/connections/<%= connection._id%>"><%= connection.connectionName%></a></li>
+                            </ul>
+                        </section>
+                    <%}%>
+                <%});%>
+            <%});%>
+        <%} else {%>
+            <p>There are no connections to display.</p>
+        <%}%>
+    </main>
+    <%- include('../partials/footer.ejs')%>

@@ -1,0 +1,58 @@
+<%- include('../partials/header.ejs')%>
+<main>
+<div class = "form">
+    <form method = "POST" action = "/connections/<%= connection._id%>?_method=PUT">
+            <div class="userInput">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" name="topic" value = "<%= connection.topic%>" required>
+            </div>
+            <br>
+            <div class="userInput">
+                <label for="connectionName">Title</label>
+                <input type="text" id="connectionName" name="connectionName" value = "<%= connection.connectionName%>" required>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="details">Details</label>
+                <textarea id="details" name="details" rows="5" cols="30" required minlength="10"><%= connection.details%></textarea>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="location">Where</label>
+                <input type="text" id="location" name="location" value = "<%= connection.location%>" required>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="date">When</label>
+                <input type="date" id="date" name="date" value = "<%= connection.date%>" required>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="startTime">Start</label>
+                <input type="time" id="startTime" name="startTime" value = "<%= connection.startTime%>" required>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="endTime">End</label>
+                <input type="time" id="endTime" name="endTime" value = "<%= connection.endTime%>" required>
+            </div>
+            <br>
+
+            <div class="userInput">
+                <label for="image">Image URL</label>
+                <input type="url" id="image" name="image" value = "<%= connection.image%>" required>
+            </div>
+            <br>
+
+            <div id="connectionButton">
+                <button>Update Connection</button>
+            </div> 
+    </form>
+    </div>
+</main>
+<%- include('../partials/footer.ejs')%>

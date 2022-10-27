@@ -1,0 +1,78 @@
+<%- include('../partials/header.ejs')%>
+<main class="paragraphText">
+    <div class="overview">
+        <p>Welcome, <%= user.firstName + " " + user.lastName + '!'%></p>
+        <%if(connections.length) {%>
+            <p>You have created the following connections:</p>
+            <br>
+            <table>
+                <tr>
+                    <th>Connection</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            <%connections.forEach(connection =>{%>
+                    <tr>
+                        <td><%= connection.connectionName%></td>
+                        <td><%= connection.topic%></td>
+                        <td>
+                            <form>
+                                <div id="update">
+                                    <button type="submit" formmethod="GET" formaction="/connections/<%= connection._id%>/edit">Edit</button>
+                                </div>
+                    
+                                <div id="delete">
+                                    <button type="submit" formmethod="POST" formaction="/connections/<%= connection._id%>?_method=DELETE">Delete</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+
+                <%});%>
+            </table>
+            <%} else {%>
+                <p>You have not created any connections.</p>
+            <%}%>
+
+            <br><br>
+
+            <%if(rsvps.length) {%>
+                <p>You have RSVP'd to the following connections:</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Connection Name</th>
+                        <th>RSVP Status</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                <%rsvps.forEach(rsvp =>{%>
+                        <tr>
+                            <td><%= rsvp.connection.connectionName%></td>
+                            <td><%= rsvp.rsvp%></td>
+                            <td>
+                                <form>
+                                    <div id="update">
+                                        <button type="submit" formmethod="GET" formaction="/connections/<%= rsvp.connection._id%>/">Edit</button>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div id="delete">
+                                        <button type="submit" formmethod="POST" formaction="/connections/<%= rsvp.connection._id%>/rsvp?_method=DELETE">Delete</button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+    
+                    <%});%>
+                </table>
+                <%} else {%>
+                    <p>You have not created any RSVPs.</p>
+                <%}%>
+
+    </div>
+</main>
+
+
+
+<%- include('../partials/footer.ejs')%>
