@@ -11,6 +11,8 @@ and working with databases, and because it was something new for me, I found it 
 rewarding to overcome the issues I faced in this project and see that I was able to create\
 a working application with a backend.
 
+Tools used include: HTML/CSS/JS, NodeJS & ExpressJS, MongoDB & Mongoose
+
 To run this project, type the following 2 lines in your terminal:\
 npm install\
 nodemon app
